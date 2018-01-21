@@ -9,17 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browser-sync": "*",
-    "gulp": "*",
-    "gulp-clean": "*",
-    "gulp-concat": "*",
-    "gulp-csso": "*",
-    "gulp-imagemin": "*",
-    "gulp-myth": "*",
-    "gulp-plumber": "*",
+    "autoprefixer": "^7.2.5",
+    "browser-sync": "^2.23.5",
+    "gulp": "^4.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-myth": "^1.1.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-sourcemaps": "*",
-    "gulp-uglify": "*",
-    "gulp-zopfli": "*"
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^3.0.0",
+    "gulp-zopfli": "^1.0.0",
+    "postcss-cssnext": "^3.0.2"
   }
 }

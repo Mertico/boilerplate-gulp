@@ -7,6 +7,8 @@ var gulp = require('gulp'),                        // Сообственно Gul
   concat = require('gulp-concat'),                 // Склейка файлов
   clean = require('gulp-clean'),                   // Очистка директорий
   postcss = require('gulp-postcss'),               // Пост процессор CSS
+  autoprefixer = require('autoprefixer'),          // Автоматические префиксы
+  cssnext = require('postcss-cssnext'),            // Поледний синтаксис CSS4?
   plumber = require('gulp-plumber'),               // Вывод ошибок
   sourcemaps = require('gulp-sourcemaps'),         // Генерация sourcemaps
   zopfli = require("gulp-zopfli");
@@ -14,18 +16,29 @@ var gulp = require('gulp'),                        // Сообственно Gul
 
 /*
 sudo npm install gulp -g
-npm init
 npm install
 gulp watch
 */
-var processors = [
- ];
+
+// Settings
+
+var processors = {
+  dev: [
+    cssnext
+  ],
+  build: [
+    cssnext,
+    autoprefixer({browsers: ['> 1%']})
+  ]
+}
+
+// Develop
 
 // Собираем CSS
 gulp.task('css', function() {
   return gulp.src('./assets/css/**/*.css').pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(postcss(processors))
+    .pipe(postcss(processors.dev))
     .pipe(csso())
     .pipe(concat('main.css'))
     .pipe(sourcemaps.write('map'))
@@ -114,6 +127,8 @@ gulp.task(
   )
 );
 
+// Build
+
 // Сборка проекта gulp build
 gulp.task('build', gulp.series('clean:build', function(cb) {
   // html
@@ -124,7 +139,7 @@ gulp.task('build', gulp.series('clean:build', function(cb) {
 
   // css
   gulp.src('./assets/css/**/*.css').pipe(plumber())
-    .pipe(postcss(processors))
+    .pipe(postcss(processors.build))
     .pipe(csso()) // минимизируем css
     .pipe(concat('main.css'))
     .pipe(gulp.dest('./build/css/')) // записываем css
