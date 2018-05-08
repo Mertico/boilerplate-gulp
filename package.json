@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "autoprefixer": "^7.2.6",
-    "browser-sync": "^2.23.6",
+    "autoprefixer": "^8.4.1",
+    "browser-sync": "^2.24.4",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
