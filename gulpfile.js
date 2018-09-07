@@ -28,7 +28,7 @@ var processors = {
   ],
   build: [
     cssnext,
-    autoprefixer({browsers: ['> 1%']})
+    autoprefixer({browsers: ['> 5%']})
   ]
 }
 
